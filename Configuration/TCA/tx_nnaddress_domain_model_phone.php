@@ -16,6 +16,7 @@ The result of this part is: "hidden, --palette--;;1"
 */
 
     'ctrl' => array(
+        'hideTable' => 1,
         'title' => 'LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_phone',
         'label' => 'type',
         'tstamp' => 'tstamp',

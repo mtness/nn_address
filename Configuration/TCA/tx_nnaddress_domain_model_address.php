@@ -11,6 +11,7 @@ $_extConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['nn_addr
 $tx_nnaddress_domain_model_address = [
 
     'ctrl' => array(
+        'hideTable' => 1,
         'title' => 'LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_address',
         'label' => 'type',
         'tstamp' => 'tstamp',
