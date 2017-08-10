@@ -201,6 +201,32 @@
 		</tr>
 	</f:if>
 
+	<f:if condition="{person.falFile}">
+		<tr>
+			<td>
+				<f:translate key="tx_nnaddress_domain_model_person.file"/>
+			</td>
+			<td>
+				<f:for each="{person.falFile}" as="falfile" iteration="i">
+					<f:if condition="{i.isFirst}">
+						<f:then>
+							<span class="file-link">
+								<a href="{falfile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">
+									{f:if(condition:falfile.originalResource.title, then:falfile.originalResource.title, else:falfile.originalResource.name)}
+								</a>
+							</span>
+							<span class="file-size">
+								{falfile.originalResource.size -> f:format.bytes()}
+							</span>
+						</f:then>
+						<f:else>
+						</f:else>
+					</f:if>
+				</f:for>
+			</td>
+		</tr>
+	</f:if>
+
 	<f:if condition="{person.notes}">
 		<tr>
 			<td>

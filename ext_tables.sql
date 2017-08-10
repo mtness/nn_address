@@ -16,6 +16,7 @@ CREATE TABLE tx_nnaddress_domain_model_person (
 	birthday int(11) DEFAULT '0' NOT NULL,
 	image text,
 	fal_image int(11) unsigned DEFAULT '0',
+	fal_file int(11) unsigned DEFAULT '0',
 	street varchar(255) DEFAULT '' NOT NULL,
 	number varchar(255) DEFAULT '' NOT NULL,
 	zip varchar(255) DEFAULT '' NOT NULL,

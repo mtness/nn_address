@@ -99,6 +99,12 @@
 			<trans-unit id="tx_nnaddress_domain_model_person.image">
 				<source>Image</source>
 			</trans-unit>
+			<trans-unit id="tx_nnaddress_domain_model_person.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_nnaddress_domain_model_person.file.add">
+				<source>Add File</source>
+			</trans-unit>
 			<trans-unit id="tx_nnaddress_domain_model_person.street">
 				<source>Street</source>
 			</trans-unit>

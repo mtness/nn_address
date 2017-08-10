@@ -51,6 +51,10 @@
 				<source>Image</source>
 				<target>Bild</target>
 			</trans-unit>
+			<trans-unit id="tx_nnaddress_domain_model_person.file">
+				<source>File</source>
+				<target>Datei</target>
+			</trans-unit>
 			<trans-unit id="tx_nnaddress_domain_model_person.street">
 				<source>Street</source>
 				<target>Straße</target>

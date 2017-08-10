@@ -33,11 +33,11 @@ $tx_nnaddress_domain_model_person = [
         'iconfile' => 'EXT:nn_address/Resources/Public/Icons/tx_nnaddress_domain_model_person.gif'
     ),
     'interface' => array(
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, gender, title, first_name, second_first_name, last_name, organisation, position, image, fal_image, street, number, zip, city, phone, fax, email, website, notes, addresses, phones, mails, groups, categories, flexform',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, gender, title, first_name, second_first_name, last_name, organisation, position, image, fal_image, fal_file, street, number, zip, city, phone, fax, email, website, notes, addresses, phones, mails, groups, categories, flexform',
     ),
     'types' => array(
         '1' => array(
-            'showitem' => 'l10n_parent, l10n_diffsource, hidden, gender, title, first_name, second_first_name, last_name, organisation, position, birthday, fal_image, website, notes,
+            'showitem' => 'l10n_parent, l10n_diffsource, hidden, gender, title, first_name, second_first_name, last_name, organisation, position, birthday, fal_image, fal_file, website, notes,
 									--div--;LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_person.addresses, addresses, 
 									--div--;LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_person.phones, phones,
 									--div--;LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_person.mails, mails, 
@@ -232,6 +232,31 @@ $tx_nnaddress_domain_model_person = [
             'config' => ExtensionManagementUtility::getFileFieldTCAConfig('image', array(
                 'maxitems' => 5,
             ), $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
+        ),
+        'fal_file' => array(
+            'exclude' => true,
+            'l10n_mode' => 'mergeIfNotBlank',
+            'label' => 'LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_person.file',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'fal_related_files',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:nn_address/Resources/Private/Language/locallang_db.xlf:tx_nnaddress_domain_model_person.file.add',
+                        'showPossibleLocalizationRecords' => true,
+                        'showRemovedLocalizationRecords' => true,
+                        'showAllLocalizationLink' => true,
+                        'showSynchronizationLink' => true
+                    ],
+                    'inline' => [
+                        'inlineOnlineMediaAddButtonStyle' => 'display:none'
+                    ],
+                    'foreign_match_fields' => [
+                        'fieldname' => 'fal_file',
+                        'tablenames' => 'tx_nnaddress_domain_model_person',
+                        'table_local' => 'sys_file',
+                    ],
+                ]
+            )
         ),
         'street' => array(
             'exclude' => 1,

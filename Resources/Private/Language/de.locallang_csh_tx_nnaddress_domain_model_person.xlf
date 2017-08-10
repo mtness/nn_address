@@ -39,6 +39,9 @@
 			<trans-unit id="image.description">
 				<target>Bild</target>
 			</trans-unit>
+			<trans-unit id="file.description">
+				<target>Datei</target>
+			</trans-unit>
 			<trans-unit id="street.description">
 				<target>Straße</target>
 			</trans-unit>

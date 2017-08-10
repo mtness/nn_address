@@ -104,6 +104,13 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $falImage;
 
+	/**
+	 * fal_file
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 */
+	protected $falFile;
+
 
 	/**
 	 * street
@@ -236,6 +243,8 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->falImage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+
+		$this->falFile = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 
 		$this->addresses = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
@@ -437,8 +446,35 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->falImage = $falImage;
 	}
 
+	/**
+	 * Sets the file
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $falFile
+	 * @return void
+	 */
+	public function setFile($file) {
+		$this->file = $file;
+	}
 
 
+	/**
+	 * Returns the falFile
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $falFile
+	 */
+	public function getFalFile() {
+		return $this->falFile;
+	}
+
+	/**
+	 * Sets the falFile
+	 *
+	 * @param \string $falFile
+	 * @return void
+	 */
+	public function setFalFile($falFile) {
+		$this->falFile = $falFile;
+	}
 
 	/**
 	 * Returns the street
