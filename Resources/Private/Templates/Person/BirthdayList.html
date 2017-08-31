@@ -1,0 +1,65 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:nn="http://typo3.org/ns/NN/NnAddress/ViewHelpers"
+	  xmlns:v="http://typo3.org/ns/FluidTYPO3\Vhs\ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="List" />
+
+<f:section name="main">
+
+<f:if condition="{settings.enableSearch}">
+	<f:if condition="{settings.groupSearchTypeAnd}">
+		<f:then><f:render partial="Search/FormAnd" arguments="{sword:sword,groups:groups,selectedGroups:selectedGroups}" /></f:then>
+		<f:else><f:render partial="Search/Form" arguments="{sword:sword,groups:groups,selectedGroup:selectedGroup,groupHierachy:groupHierachy}" /></f:else>
+	</f:if>
+</f:if>
+
+
+
+<f:switch expression="{settings.templateLayout}">
+	<f:case value="birthday">
+	</f:case>
+	<f:case default="TRUE">
+		<div class="tx-nn-address birthday list nameonly">
+			<f:for each="{persons}" as="person" iteration="i">
+				<div class="item">
+						<span class="date">{person.birthday -> f:format.date(format:'d.m.')}</span>
+					  <f:link.action pageUid="30" pluginName="abclist"  arguments="{person : person}" class="imglink">
+						<f:if condition="{person.falImage}">
+							<f:then>
+								<f:for each="{person.falImage}" as="falimage" iteration="j">
+									<f:if condition="{j.isFirst}">
+										<f:image
+											class="userimg"
+											src="{falimage.originalResource.publicUrl}"
+											alt="{falimage.originalResource.alternative}"
+											title="{falimage.originalResource.alternative}"
+											width="100c"
+											height="100c"
+											treatIdAsReference="1"
+										/>
+									</f:if>
+								</f:for>
+							</f:then>
+							<f:else>
+								<div class="userimg notfound"><i class="fa fa-user" aria-hidden="true"></i></div>
+							</f:else>
+						</f:if>
+					  </f:link.action>
+					  <f:link.action pageUid="30" pluginName="abclist"  arguments="{person : person}">
+						<div class="name">
+							<span class="lastname">{person.lastName}<f:if condition="{person.generation}"> {person.generation}</f:if></span>, <span class="firstname">{person.firstName}</span><f:if condition="{person.title}"> <span class="title">({person.title})</span></f:if>
+						</div>
+					  </f:link.action>
+				</div>
+			</f:for>
+		</div>
+	</f:case>
+</f:switch>
+
+
+
+
+
+</f:section>
+</html>

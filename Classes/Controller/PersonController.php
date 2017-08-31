@@ -73,6 +73,23 @@ class PersonController extends \NN\NnAddress\Mvc\Controller\BasicController
         $this->setSearchPresets();
     }
 
+	/**
+	 * action birthdayList
+	 *
+	 * @return void
+	 */
+	public function birthdayListAction() {
+		// Database ordering
+		$this->setOrderings($this->personRepository,'lastName');
+		
+		// Get all contacts
+		$persons = $this->personRepository->getUpcomingBirthdays( $this->settings['limit'] );
+		
+		// Give it to fluid
+		$this->view->assign('persons', $persons);
+		$this->setSearchPresets();
+	}
+
     /**
      * action abcList
      *

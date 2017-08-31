@@ -15,6 +15,9 @@
 			<trans-unit id="tx_nnaddress_flexForm_order">
 				<source>Order</source>
 			</trans-unit>
+			<trans-unit id="tx_nnaddress_flexForm_limit">
+				<source>Limit</source>
+			</trans-unit>
 			<trans-unit id="tx_nnaddress_flexForm_order_asc">
 				<source>Ascending</source>
 			</trans-unit>

@@ -84,6 +84,28 @@ class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         return $query->execute();
     }
 
+    /**
+     * Get next X Birthays
+     *
+     * @param \int $personUid
+     * @return \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult
+     */
+    public function getUpcomingBirthdays( $nextx = 5 ) {
+        $query = $this->createQuery();
+
+		$sql = "SELECT * from tx_nnaddress_domain_model_person 
+				ORDER BY (case when DATE_FORMAT(FROM_UNIXTIME(birthday), '%m-%d') >= DATE_FORMAT(now(), '%m-%d') then 0 else 1 end),
+				DATE_FORMAT(FROM_UNIXTIME(birthday), '%m-%d')
+				LIMIT ". $nextx ."
+				";
+
+		$query->statement($sql);
+
+        $query->getQuerySettings()->setRespectStoragePage(FALSE);
+
+        return $query->execute();
+    }
+
 
 	/**
 	 * Find all Persons by Demand

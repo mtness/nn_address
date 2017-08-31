@@ -57,6 +57,9 @@ plugin.tx_nnaddress {
 #
 ## A little trick to make smaller URLs
 #
+[globalVar = GP:tx_nnaddress_birthdaylist|person > 0]
+	config.defaultGetVars.tx_nnaddress_birthdaylist.action = show
+[global]
 [globalVar = GP:tx_nnaddress_abclist|person > 0]
 	config.defaultGetVars.tx_nnaddress_abclist.action = show
 [global]

@@ -44,4 +44,18 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'NN.' . $_EXTKEY,
+	'BirthdayList',
+	array(
+		'Person' => 'birthdayList, show',
+		
+	),
+	// non-cacheable actions
+	array(
+		'Person' => '',
+		
+	)
+);
+
 ?>
